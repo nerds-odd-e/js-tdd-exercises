@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <title>
+      Money Exchange Exercise
+    </title>
+    <!-- Bootstrap -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+  </head>
+  <body>
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">Money Exchanger</h3>
+              <nav>
+              <ul class="nav masthead-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+              </nav>
+            </div>
+          </div>
+
+          <div class="inner cover">
+            <h1 class="cover-heading">How much is it in ...</h1>
+            <form class="" role="form">
+              <div class="form-group">
+                <label for="amount">Amount:</label>
+                <input type="text" class="form-control" id="amount">
+              </div>
+              <div class="form-group">
+                <label for="From">From:</label>
+                <input type="text" class="form-control" id="from">
+              </div>
+              <div class="form-group">
+                <label for="To">to:</label>
+                <input type="text" class="form-control" id="to">
+              </div>
+              <button type="submit" class="btn btn-default btn-lg btn-block">Submit</button>
+            </form>
+            <p class="lead">
+              Result is:
+              <span id="exchange-result">
+              </span>
+            </p>
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>template copyed from <a href="https://twitter.com/mdo">@mdo</a>.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="js/money_exchanger.js"></script>
+  </body>
+</html>
