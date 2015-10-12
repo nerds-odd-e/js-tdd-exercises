@@ -4,7 +4,10 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     jasmine : {
-      src : 'js/**/*.js',
+      src : [
+        'js/keys.js',
+        'js/store.js',
+        'js/**/*.js'],
       options : {
         specs : 'spec/**/*.js'
       }
