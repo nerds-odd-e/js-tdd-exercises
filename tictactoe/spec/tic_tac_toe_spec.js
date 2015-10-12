@@ -1,3 +1,5 @@
+/*global Game */
+
 describe("Game", function() {
   it("only available move", function() {
     expect(new Game("XOXOX-OXO").move("X")).toEqual(5);
