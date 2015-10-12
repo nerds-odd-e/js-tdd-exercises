@@ -48,18 +48,10 @@
 
 	      <div class="tile-container" id="tile-container">
 
-				<!-- Component way with template inside component obj -->
-				<!-- <div v-repeat="tiles" v-component="tile"></div> -->
-
 				<!-- Component way with computed function -->
 				<div v-repeat="tiles" v-component="tile"  v-style="$transform: 'translate(' + calcStyleX + 'px,' + calcStyleY + 'px)'" class="tile tile-{{value}} tile-new{{merged ? ' tile-merged' : ''}}">
 					<div class="tile-inner">{{value}}</div>
 				</div>
-
-				<!-- Use of the directive v-style -->
-				<!-- <div v-repeat="tiles" v-style="$transform: 'scale(' + x + ')'" class="tile tile-{{value}} tile-new">
-					<div class="tile-inner">{{value}}</div>
-				</div> -->
 
 	      </div>
 

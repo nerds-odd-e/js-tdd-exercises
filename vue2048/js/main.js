@@ -1,3 +1,7 @@
+/*global Vue */
+/*global gameStorage */
+/*global KeyboardInputManager */
+
 (function(win) {
 
 	var Game = new Vue({
@@ -96,8 +100,9 @@
 			selected: {
 				isEmpty: true,
 				bind: function () {
-					if(this.vm.conf.size)
+					if(this.vm.conf.size) {
 						this.el.value = this.vm.conf.size;
+          }
 				}
 			}
 		},
@@ -155,8 +160,9 @@
 				e.preventDefault();
 				this.conf.size = parseInt(e.target.value);
 
-				if(document.activeElement)
+				if(document.activeElement) {
 					document.activeElement.blur();
+        }
 
 				this.init();
 			},
@@ -263,8 +269,9 @@
 
 			findTile: function(position) {
 
-				if (position.x === -1 || position.y === -1)
+				if (position.x === -1 || position.y === -1) {
 					return null;
+        }
 				else {
 					var tiles = this.tiles;
 
@@ -433,8 +440,8 @@
 				}
 
 				// Always traverse from the farthest cell in the chosen direction
-				if (vector.x === 1) traversals.x = traversals.x.reverse();
-				if (vector.y === 1) traversals.y = traversals.y.reverse();
+				if (vector.x === 1){traversals.x = traversals.x.reverse();}
+				if (vector.y === 1){traversals.y = traversals.y.reverse();}
 
 				return traversals;
 			},
@@ -460,8 +467,9 @@
 				}
 
 				// The mighty 2048 tile
-				if (score === 2048)
+				if (score === 2048) {
 					this.message(true);
+        }
 
 				var addition = document.createElement("div");
 				addition.classList.add("score-addition");
@@ -480,7 +488,7 @@
 			},
 
 			clearMessage: function() {
-				messageContainer = document.querySelector(".game-message");
+				var messageContainer = document.querySelector(".game-message");
 
 				messageContainer.classList.remove("game-won");
 				messageContainer.classList.remove("game-over");
