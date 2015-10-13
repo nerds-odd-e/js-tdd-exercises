@@ -8,6 +8,7 @@ function Game(s, position, player) {
 Game.prototype.move = function(player) {
   var i;
 
+  // find a cell that can win
   for(i = 0; i < 9; i++) {
     if(this.board[i] === "-") {
       var game = this.play(i, player);
@@ -17,6 +18,7 @@ Game.prototype.move = function(player) {
     }
   }
 
+  // find an empty cell
   for(i = 0; i < 9; i++) {
     if(this.board[i] === "-") {
       return i;
