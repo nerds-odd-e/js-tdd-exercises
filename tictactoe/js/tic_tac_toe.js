@@ -2,7 +2,6 @@ function Game(s) {
   this.board = s;
 }
 function Game(s, position, player) {
-  this.board = s;
   this.board = s.substring(0, position) + player + s.substring(position + 1, s.length + 1);
 }
 
