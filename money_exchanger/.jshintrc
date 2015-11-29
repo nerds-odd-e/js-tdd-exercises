@@ -10,7 +10,10 @@
   "boss"    : true,
   "eqnull"  : true,
   "node"    : true,
+  "browser" : true,
   "globals" : {
+    "window"     : false,
+    "jasmine"    : false,
     "it"         : false,
     "xit"        : false,
     "describe"   : false,
@@ -21,4 +24,3 @@
     "spyOn"      : false
   }
 }
-
