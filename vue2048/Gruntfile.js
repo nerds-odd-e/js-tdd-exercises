@@ -4,7 +4,11 @@ module.exports = function(grunt) {
   grunt.initConfig({
     jasmine : {
       src : [
-        'js/**/*.js'],
+        'js/libs/vue.js',
+        'js/keys.js',
+        'js/store.js',
+        'js/main.js'
+      ],
       options : {
         specs : 'spec/**/*.js'
       }

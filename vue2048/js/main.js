@@ -27,7 +27,7 @@
 			if (conf.score) {
 				this.continueGame(data);
 			} else {
-				
+
 				if (conf.length === 0) {
 					//First Kick
 					this.conf = {
@@ -36,7 +36,7 @@
 						bestScore: 0
 					};
 				}
-				
+
 				this.init();
 			}
 
@@ -72,7 +72,7 @@
 		},
 
 		components: {
-			
+
 			tile: {
 
 				replace: true,
@@ -302,7 +302,7 @@
 
 				next.value *= 2;
 				next.merged = true;
-				
+
 				var tiles = this.tiles;
 
 				//Better Way to find index of data
@@ -341,9 +341,9 @@
 								x: x,
 								y: y
 							});
-							
+
 							//tile.merged = false;
-							
+
 							var positions = self.findFarthestPosition({
 								x: x,
 								y: y
@@ -351,7 +351,7 @@
 							//console.log(positions);
 							var next = self.findTile(positions.next);
 
-							//console.log(next); 
+							//console.log(next);
 							// Only one merger per row traversal?
 							if (next && next.value === tile.value) {
 
