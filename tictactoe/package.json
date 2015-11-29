@@ -8,7 +8,7 @@
     "watch": "^0.16.0"
   },
   "scripts": {
-    "test": "jshint **/*.js && jasmine",
-    "watch": "watch 'jshint **/*.js && jasmine' ./lib ./spec"
+    "test": "jshint lib spec && jasmine",
+    "watch": "watch 'jshint lib spec && jasmine' ./lib ./spec"
   }
 }
