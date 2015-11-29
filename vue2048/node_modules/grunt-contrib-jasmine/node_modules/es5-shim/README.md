@@ -38,6 +38,8 @@ simply `npm install` and `npm test`.
 * Array.prototype.some
 * Array.prototype.reduce
 * Array.prototype.reduceRight
+* Array.prototype.push
+* Array.prototype.join
 * Array.isArray
 * Date.now
 * Date.prototype.toJSON
@@ -48,14 +50,17 @@ simply `npm install` and `npm test`.
     * :warning: Caveat: bound functions don't have checks in ``call`` and
       ``apply`` to avoid executing as a constructor.
 * Number.prototype.toFixed
+* Number.prototype.toPrecision
 * Object.keys
 * String.prototype.split
 * String.prototype.trim
+* String.prototype.lastIndexOf
 * String.prototype.replace
     * Firefox (through v29) natively handles capturing groups incorrectly.
 * Date.parse (for ISO parsing)
 * Date.prototype.toISOString
 * parseInt
+* Error.prototype.toString
 
 ## Shams
 

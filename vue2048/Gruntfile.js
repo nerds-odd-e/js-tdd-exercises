@@ -1,12 +1,9 @@
 module.exports = function(grunt) {
   'use strict';
 
-  // Project configuration.
   grunt.initConfig({
     jasmine : {
       src : [
-        'js/keys.js',
-        'js/store.js',
         'js/**/*.js'],
       options : {
         specs : 'spec/**/*.js'
@@ -15,9 +12,8 @@ module.exports = function(grunt) {
     jshint: {
       all: [
         'Gruntfile.js',
-        'js/**/*.js',
-        'spec/**/*.js',
-        '!js/libs/**'
+        'js/*.js',
+        'spec/**/*.js'
       ],
       options: {
         jshintrc: '.jshintrc'
@@ -25,7 +21,7 @@ module.exports = function(grunt) {
     },
     watch: {
       scripts: {
-        files: ['**/*.js'],
+        files: ['js/**/*.js','spec/**/*.js'],
         tasks: ['jshint', 'jasmine'],
         options: {
           spawn: false,
@@ -41,5 +37,4 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['jshint', 'jasmine']);
 
   grunt.registerTask('default', ['test']);
-
 };
