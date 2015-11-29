@@ -1,0 +1,14 @@
+{
+  "name": "fizzbuzz",
+  "version": "1.0.0",
+  "author": "Odd-e",
+  "devDependencies": {
+    "jasmine": "^2.3.2",
+    "jshint": "^2.8.0",
+    "watch": "^0.16.0"
+  },
+  "scripts": {
+    "test": "jshint lib spec && jasmine",
+    "watch": "watch 'jshint lib spec && jasmine' ./lib ./spec"
+  }
+}
