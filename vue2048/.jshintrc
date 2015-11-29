@@ -12,6 +12,12 @@
   "node"    : true,
   "browser" : true,
   "globals" : {
+    "setFixtures"       : false,
+    "loadFixtures"      : false,
+    "appendLoadFixtures": false,
+    "readFixtures"      : false,
+    "appendSetFixtures" : false,
+    "$"          : false,
     "window"     : false,
     "jasmine"    : false,
     "it"         : false,
