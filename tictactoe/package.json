@@ -1,12 +1,14 @@
 {
   "name": "tictactoe",
   "version": "1.0.0",
-  "author": "Stanly Lau",
+  "author": "Odd-e",
   "devDependencies": {
-    "karma": "^0.13.10",
-    "karma-chrome-launcher": "^0.2.1",
-    "karma-jasmine": "^0.3.6",
-    "karma-phantomjs-launcher": "^0.2.1",
-    "phantomjs": "^1.9.18"
+    "jasmine": "^2.3.2",
+    "jshint": "^2.8.0",
+    "watch": "^0.16.0"
+  },
+  "scripts": {
+    "test": "jshint **/*.js && jasmine",
+    "watch": "watch 'jshint **/*.js && jasmine' ./lib ./spec"
   }
 }
