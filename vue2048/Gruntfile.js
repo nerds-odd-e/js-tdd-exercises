@@ -10,7 +10,11 @@ module.exports = function(grunt) {
         'js/main.js'
       ],
       options : {
-        specs : 'spec/**/*.js'
+        specs : 'spec/**/*.js',
+        vendor: [
+          'node_modules/jquery/dist/jquery.js',
+          'node_modules/jasmine-jquery/lib/jasmine-jquery.js'
+        ],
       }
     },
     jshint: {
@@ -26,7 +30,7 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: ['js/**/*.js','spec/**/*.js'],
-        tasks: ['jshint', 'jasmine'],
+        tasks: ['jasmine'],
         options: {
           spawn: false,
         },
@@ -34,6 +38,7 @@ module.exports = function(grunt) {
     },
   });
 
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
