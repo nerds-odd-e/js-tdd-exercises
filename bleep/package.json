@@ -1,0 +1,14 @@
+{
+  "name": "bleep",
+  "version": "1.0.0",
+  "author": "Odd-e",
+  "devDependencies": {
+    "jasmine": "^2.7.0",
+    "jshint": "^2.9.5",
+    "watch": "^0.16.0"
+  },
+  "scripts": {
+    "test": "jshint lib spec && jasmine",
+    "watch": "watch 'jshint lib spec && jasmine' ./lib ./spec"
+  }
+}
