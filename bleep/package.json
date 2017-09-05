@@ -4,6 +4,7 @@
   "author": "Odd-e",
   "devDependencies": {
     "jasmine": "^2.7.0",
+    "jsdom": "^11.2.0",
     "jshint": "^2.9.5",
     "watch": "^0.16.0"
   },
