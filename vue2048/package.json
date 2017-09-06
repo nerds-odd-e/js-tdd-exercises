@@ -1,0 +1,16 @@
+{
+  "name": "vue2048",
+  "version": "1.0.0",
+  "description": "vue2048 =======",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine",
+    "watch": "watch 'jasmine' ./spec ./js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine": "^2.8.0",
+    "jsdom": "^11.2.0"
+  }
+}
