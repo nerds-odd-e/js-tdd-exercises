@@ -21,14 +21,17 @@ exports.appendHandler = function appendHandler(el, eventName) {
 
     let returnValue = null;
     const thisValue = idlUtils.tryWrapperForImpl(event.currentTarget);
-    if (specialError) {
-      returnValue = callback.call(
-        thisValue, event.message,
-        event.filename, event.lineno, event.colno, event.error
-      );
-    } else {
-      const eventWrapper = idlUtils.wrapperForImpl(event);
-      returnValue = callback.call(thisValue, eventWrapper);
+    // https://heycam.github.io/webidl/#es-invoking-callback-functions
+    if (typeof callback === "function") {
+      if (specialError) {
+        returnValue = callback.call(
+          thisValue, event.message,
+          event.filename, event.lineno, event.colno, event.error
+        );
+      } else {
+        const eventWrapper = idlUtils.wrapperForImpl(event);
+        returnValue = callback.call(thisValue, eventWrapper);
+      }
     }
 
     if (event.type === "beforeunload") { // TODO: we don't implement BeforeUnloadEvent so we can't brand-check here
@@ -58,11 +61,13 @@ exports.setupForSimpleEventAccessors = (prototype, events) => {
   };
 
   prototype._setEventHandlerFor = function (event, handler) {
-    if (!this._eventHandlers) {
+    if (!this._registeredHandlers) {
+      this._registeredHandlers = new Set();
       this._eventHandlers = Object.create(null);
     }
 
-    if (!this._eventHandlers[event] && handler !== null) {
+    if (!this._registeredHandlers.has(event) && handler !== null) {
+      this._registeredHandlers.add(event);
       exports.appendHandler(this, event);
     }
     this._eventHandlers[event] = handler;
@@ -77,6 +82,7 @@ exports.setupForSimpleEventAccessors = (prototype, events) => {
 exports.createEventAccessor = function createEventAccessor(obj, event) {
   Object.defineProperty(obj, "on" + event, {
     configurable: true,
+    enumerable: true,
     get() { // https://html.spec.whatwg.org/#getting-the-current-value-of-the-event-handler
       const value = this._getEventHandlerFor(event);
       if (!value) {
@@ -93,7 +99,7 @@ exports.createEventAccessor = function createEventAccessor(obj, event) {
           element = this;
           document = element.ownerDocument;
         }
-        const body = value.body;
+        const { body } = value;
 
         const formOwner = element !== null && element.form ? element.form : null;
         const window = this.constructor.name === "Window" && this._document ? this : document.defaultView;
@@ -179,14 +185,6 @@ function typeIsObject(v) {
 function eventHandlerArgCoercion(val) {
   if (!typeIsObject(val)) {
     return null;
-  }
-
-  if (val === null || val === undefined) {
-    return null;
-  }
-
-  if (typeof val !== "function") {
-    return () => {};
   }
 
   return val;
